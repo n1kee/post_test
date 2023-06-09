@@ -2,8 +2,6 @@
 
 namespace App\Validator;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 abstract class Validator
@@ -19,7 +17,7 @@ abstract class Validator
 
         $messages = ['message' => 'validation_failed', 'errors' => []];
 
-        /** @var \Symfony\Component\Validator\ConstraintViolation  */
+        /* @var \Symfony\Component\Validator\ConstraintViolation */
         foreach ($errors as $message) {
             $messages['errors'][] = [
                 'property' => $message->getPropertyPath(),
@@ -27,6 +25,7 @@ abstract class Validator
                 'message' => $message->getMessage(),
             ];
         }
+
         return $messages['errors'];
     }
 

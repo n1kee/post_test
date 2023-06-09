@@ -2,20 +2,18 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
-use App\Requests\LettersRequest;
 use App\Service\LetterService;
-use Symfony\Component\HttpFoundation\Request;
-use App\Validator\Validator;
 use App\Validator\CommonInfoValidator;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 class LetterController extends AbstractController
 {
-    function __construct(protected LetterService $letterService) {
-
+    public function __construct(protected LetterService $letterService)
+    {
     }
 
     #[Route('/api/v2.3/letters', name: 'send_letters')]
@@ -36,7 +34,7 @@ class LetterController extends AbstractController
             'code' => $httpCode,
             'message' => $errors ? json_encode($errors, true) : null,
             'data' => [
-                "requestCode" => $requestCode,
+                'requestCode' => $requestCode,
             ],
         ], $httpCode);
     }

@@ -2,13 +2,11 @@
 
 namespace App\Validator;
 
-use App\Validator\Validator;
+use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\Constraints\Type;
-use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\Regex;
-use App\Requests\BaseRequest;
+use Symfony\Component\Validator\Constraints\Type;
 
 class CommonInfoValidator extends Validator
 {
